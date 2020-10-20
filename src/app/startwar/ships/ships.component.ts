@@ -1,3 +1,4 @@
+import { ShipsService } from './../services/ships.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -7,9 +8,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ShipsComponent implements OnInit {
 
-  constructor() { }
+  myResultadoStart: any[] = [];
+  constructor(private myShipService: ShipsService) { }
 
   ngOnInit(): void {
+    this.myShipService.getListOdfBloque().subscribe(x => {
+      if(x){
+        this.myResultadoStart = x.results;
+        console.log('imprimo mi resultado', this.myResultadoStart);
+      }
+    });
   }
 
 }
