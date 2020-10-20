@@ -1,4 +1,6 @@
+import { Flash } from './login/model/flash';
 import { Component } from '@angular/core';
+import { AppService } from './app.service';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +9,8 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'start-wars-angular-test';
+  myFlash: Flash;
+  constructor(private flashApi: AppService){
+
+  }
 }

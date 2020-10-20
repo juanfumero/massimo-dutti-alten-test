@@ -1,6 +1,9 @@
+<div *ngIf="mensajeAlerta === true" [ngClass]="{'alert-success': myFlashRegister.type === 'success', 'alert-danger': myFlashRegister.type === 'error' }"  >
+  {{myFlashRegister.message}}
+</div>
 <div class="col-md-6 col-md-offset-3 moverDerecha">
   <h2>Register</h2>
-  <form [formGroup]="formRegistro">
+  <form [formGroup]="formRegistro" (ngSubmit)="onSubmitRegisterForm()">
       <div class="form-group" [ngClass]="{ 'was-validated':  formRegistro.get('firstName').dirty &&  formRegistro.get('firstName').errors }">
           <label for="username">First name</label>
           <input type="text"  formControlName="firstName" name="firstName" id="firstName" class="form-control" ng-model="vm.user.firstName" required />
