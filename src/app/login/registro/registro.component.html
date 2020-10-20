@@ -1,4 +1,4 @@
-<div *ngIf="mensajeAlerta === true" [ngClass]="{'alert-success': myFlashRegister.type === 'success', 'alert-danger': myFlashRegister.type === 'error' }"  >
+<div *ngIf="mensajeAlerta === true" [ngClass]="{'alert alert-success': myFlashRegister.type === 'success', 'alert alert-danger': myFlashRegister.type === 'error' }"  >
   {{myFlashRegister.message}}
 </div>
 <div class="col-md-6 col-md-offset-3 moverDerecha">

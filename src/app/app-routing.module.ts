@@ -7,6 +7,10 @@ const routes: Routes = [
   { path: '', redirectTo: 'login', pathMatch: 'full' },
   { path: 'login', component: LoginComponent},
   { path: 'registro', component: RegistroComponent },
+  {
+    path: 'ships',
+    loadChildren: () => import('./startwar/startwar.module').then(m => m.StarWarModule)
+  }
 ];
 
 @NgModule({

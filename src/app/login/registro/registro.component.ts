@@ -35,7 +35,8 @@ export class RegistroComponent implements OnInit {
     let resultado: Register[]  = this.loginService.getUser('usuario');
     //Funcion para resetear los usuarios registrados.
     //this.loginService.removeUser('usuario');
-
+    // Base64
+    this.formRegistro.get('password').setValue(btoa(this.formRegistro.get('password').value));
     if(resultado && resultado.length > 0){
       console.log('imprimo mi resultado y es:', resultado);
       let buscarUsuario = this.formRegistro.get('username').value;

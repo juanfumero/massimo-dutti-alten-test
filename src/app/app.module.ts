@@ -1,3 +1,4 @@
+import { StarWarModule } from './startwar/startwar.module';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
@@ -19,7 +20,8 @@ import { AppService } from './app.service';
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    StarWarModule
   ],
   providers: [LoginService, AppService],
   bootstrap: [AppComponent]
