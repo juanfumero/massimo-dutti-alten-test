@@ -33,6 +33,7 @@ export class RegistroComponent implements OnInit {
 
   onSubmitRegisterForm(){
     let resultado: Register[]  = this.loginService.getUser('usuario');
+    //Funcion para resetear los usuarios registrados.
     //this.loginService.removeUser('usuario');
 
     if(resultado && resultado.length > 0){
@@ -46,32 +47,28 @@ export class RegistroComponent implements OnInit {
       } else {
         let myKey = resultado[resultado.length - 1].idkey;
         if(myKey === null || myKey === undefined){
-          //let usuarioArray: any [] = [];
           this.miRegistro.usuario = this.formRegistro.value;
           this.miRegistro.idkey = 1;
-          //usuarioArray.push(this.miRegistro);
           this.loginService.createUser('usuario', this.miRegistro);
           this.registroExito();
+          return;
         } else {
-          //let usuarioArray: any [] = [];
           this.miRegistro.usuario = this.formRegistro.value;
           this.miRegistro.idkey = myKey + 1;
-          //usuarioArray.push(this.miRegistro);
           console.log('entro en el segundo create');
           this.loginService.createUser('usuario', this.miRegistro);
           this.registroExito();
+          return;
         }
       }
 
 
     } else {
-      //let usuarioArray: any [] = [];
       this.miRegistro.usuario = this.formRegistro.value;
       this.miRegistro.idkey = 1;
-      //usuarioArray.push( this.miRegistro);
-      //console.log('entro en el tercer create');
       this.loginService.createUser('usuario', this.miRegistro);
       this.registroExito();
+      return;
     }
   }
 
