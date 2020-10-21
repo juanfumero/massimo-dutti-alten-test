@@ -1,0 +1,14 @@
+.buttons {
+  display: flex;
+}
+
+.button-left {
+  width: 50%;
+  align-items: flex-start;
+}
+
+.button-rigth {
+  width: 50%;
+  margin-left: 20px;
+  align-self: flex-end;
+}

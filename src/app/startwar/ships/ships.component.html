@@ -2,3 +2,7 @@
 
 <app-starships-list [startShip]="myResultadoStart"></app-starships-list>
 
+<div class="buttons">
+  <button (click)="previewResult()"  class="btn btn-primary button-left"[disabled]="valorGlobal.previous === null">Previous</button>
+  <button (click)="nextResult()"  class="btn btn-primary button-rigth" [disabled]="valorGlobal.next === null">Next</button>
+</div>

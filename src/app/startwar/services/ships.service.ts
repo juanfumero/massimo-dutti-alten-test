@@ -15,6 +15,10 @@ export class ShipsService {
     return this.http.get<any>('https://swapi.dev/api/starships/');
   }
 
+  getListNextOrPreview(url) : Observable<any> {
+    return this.http.get<any>(url);
+  }
+
   getImage(url: string ): Observable<any> {
     return this.http.get<any>(url);
   }
