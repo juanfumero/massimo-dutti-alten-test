@@ -1,3 +1,54 @@
 <h1>Ships Detail</h1>
+<br>
 
+<div class="card mb-3">
+  <img *ngIf="esImagen" [src]="imageURL">
+  <img *ngIf="!esImagen" src="assets/img/imagenNoEncontrada.jpg">
+  <div class="card-body">
+
+      <div class="container">
+        <h5 class="card-title">{{infoStarship?.name}}</h5>
+        <div class="row">
+          <div class="col"><strong>Model: </strong> <label>{{infoStarship?.model}}</label> </div>
+          <div class="col"><strong>Consumible: </strong><label>{{infoStarship?.consumables}}</label></div>
+          <div class="w-100"></div>
+          <div class="col"><strong>Credito: </strong><label>{{infoStarship?.cost_in_credits}}</label></div>
+          <div class="col"><strong>Maxima Velocidad: </strong><label>{{infoStarship?.max_atmosphering_speed}}</label></div>
+        </div>
+        <div class="row">
+          <div class="col"><strong>Manofactura: </strong><label>{{infoStarship?.manufacturer}}</label> </div>
+          <div class="col"><strong>Clase de Nave: </strong><label>{{infoStarship?.starship_class}}</label> </div>
+          <div class="w-100"></div>
+        </div>
+      </div>
+    <p class="card-text"></p>
+    <p class="card-text"></p>
+  </div>
+</div>
+<br>
 <button (click)="regresar()" class="btn btn-primary">Regresar</button>
+
+
+<!--
+
+  "name": "Death Star",
+	"model": "DS-1 Orbital Battle Station",
+	"manufacturer": "Imperial Department of Military Research, Sienar Fleet Systems",
+	"cost_in_credits": "1000000000000",
+	"length": "120000",
+	"max_atmosphering_speed": "n/a",
+	"crew": "342,953",
+	"passengers": "843,342",
+	"cargo_capacity": "1000000000000",
+	"consumables": "3 years",
+	"hyperdrive_rating": "4.0",
+	"MGLT": "10",
+	"starship_class": "Deep Space Mobile Battlestation",
+	"pilots": [],
+	"films": [
+		"http://swapi.dev/api/films/1/"
+	],
+	"created": "2014-12-10T16:36:50.509000Z",
+	"edited": "2014-12-20T21:26:24.783000Z",
+	"url": "http://swapi.dev/api/starships/9/"
+-->

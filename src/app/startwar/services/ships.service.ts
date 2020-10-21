@@ -19,6 +19,10 @@ export class ShipsService {
     return this.http.get<any>(url);
   }
 
+  getDetailStarship(idship: string): Observable<any> {
+    return this.http.get<any>('https://swapi.dev/api/starships/' + idship + '/');
+  }
+
 
 
  // https://swapi.dev/api/starships/
