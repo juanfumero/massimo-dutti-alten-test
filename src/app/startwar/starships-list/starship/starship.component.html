@@ -3,7 +3,8 @@
       <label>{{ startShipItem.name}}</label>
   </div>
   <div class="card-body panel-body">
-      <img  [src]="imageURL">
+      <img *ngIf="esImagen" [src]="imageURL">
+      <label *ngIf="!esImagen" class="text-danger">Imagen no disponible.</label>
   </div>
 </div>
 

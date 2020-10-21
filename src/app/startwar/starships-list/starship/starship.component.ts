@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { ShipsService } from '../../services/ships.service';
 
 @Component({
   selector: 'app-starship',
@@ -9,11 +10,28 @@ export class StarshipComponent implements OnInit {
 
   @Input() startShipItem: any;
   imageURL: string;
-  constructor() { }
+  esImagen: boolean = false;
+  constructor(private shipService: ShipsService) { }
 
   ngOnInit(): void {
 
-    this.imageURL = 'https://starwars-visualguide.com/assets/img/starships/' + this.getStarshipId(this.startShipItem.url) + '.jpg';
+    let imagenUrl = 'https://starwars-visualguide.com/assets/img/starships/' + this.getStarshipId(this.startShipItem.url) + '.jpg';
+
+    this.shipService.getImage(imagenUrl).subscribe(x => {
+      if(x.status === 200) {
+        this.esImagen = true;
+        this.imageURL = x.url;
+      } else {
+        this.esImagen = false;
+      }
+    },(error)=>{
+      if(error.status === 200) {
+        this.esImagen = true;
+        this.imageURL = error.url;
+      } else {
+        this.esImagen = false;
+      }
+    });
   }
 
   getStarshipId( url: string) {

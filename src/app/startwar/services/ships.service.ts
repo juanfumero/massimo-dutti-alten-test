@@ -15,5 +15,11 @@ export class ShipsService {
     return this.http.get<any>('https://swapi.dev/api/starships/');
   }
 
+  getImage(url: string ): Observable<any> {
+    return this.http.get<any>(url);
+  }
+
+
+
  // https://swapi.dev/api/starships/
 }
