@@ -12,7 +12,9 @@ export class ShipsService {
 
 
   getListOdfBloque(): Observable<any> {
+
     return this.http.get<any>('https://swapi.dev/api/starships/');
+
   }
 
   getListNextOrPreview(url) : Observable<any> {
@@ -29,5 +31,5 @@ export class ShipsService {
 
 
 
- // https://swapi.dev/api/starships/
+
 }
