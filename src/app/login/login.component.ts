@@ -5,6 +5,7 @@ import { Register } from './model/register';
 import { AppService } from '../app.service';
 import { Flash } from './model/flash';
 import { Router } from '@angular/router';
+import { PANTALLA_ENUM } from '../startwar/enum/pantalla.enum';
 
 @Component({
   selector: 'app-login',
@@ -31,13 +32,15 @@ export class LoginComponent implements OnInit {
       this.dataLoading = true;
       let user = this.formulario.get('username').value;
       let pass = btoa(this.formulario.get('password').value);
-      //console.log(atob("cGFzc3dvcmQ="));
       let resultado: Register[]  = this.loginService.getUser('usuario');
       setTimeout(() => {
         let buscar = resultado.find(x => x.usuario.username === user && x.usuario.password === pass);
         if(buscar) {
-          console.log('entro en el login');
-          this.router.navigate(['/inicio/ships']);
+          if(buscar.window ===  PANTALLA_ENUM.SHIP) {
+            this.router.navigate(['/inicio/ships']);
+          } else if (buscar.window ===  PANTALLA_ENUM.PANTALLA) {
+            this.router.navigate(['/inicio/pantalla']);
+          }
           this.dataLoading = false;
         } else {
           this.loginError();

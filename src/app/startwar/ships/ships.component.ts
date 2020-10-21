@@ -17,7 +17,6 @@ export class ShipsComponent implements OnInit {
       if(x){
         this.myResultadoStart = x.results;
         this.valorGlobal = x;
-        console.log('imprimo mi resultado', this.myResultadoStart);
       }
     });
 

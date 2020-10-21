@@ -38,10 +38,8 @@ export class RegistroComponent implements OnInit {
     // Base64
     this.formRegistro.get('password').setValue(btoa(this.formRegistro.get('password').value));
     if(resultado && resultado.length > 0){
-      console.log('imprimo mi resultado y es:', resultado);
       let buscarUsuario = this.formRegistro.get('username').value;
       let busqueda = resultado.find(x => x.usuario.username === buscarUsuario);
-      console.log('mi resultado busqueda es', busqueda);
       if( busqueda){
         this.registroError(buscarUsuario);
         return;
@@ -50,13 +48,14 @@ export class RegistroComponent implements OnInit {
         if(myKey === null || myKey === undefined){
           this.miRegistro.usuario = this.formRegistro.value;
           this.miRegistro.idkey = 1;
+          this.miRegistro.window = 'ship';
           this.loginService.createUser('usuario', this.miRegistro);
           this.registroExito();
           return;
         } else {
           this.miRegistro.usuario = this.formRegistro.value;
           this.miRegistro.idkey = myKey + 1;
-          console.log('entro en el segundo create');
+          this.miRegistro.window = 'ship';
           this.loginService.createUser('usuario', this.miRegistro);
           this.registroExito();
           return;
@@ -67,6 +66,7 @@ export class RegistroComponent implements OnInit {
     } else {
       this.miRegistro.usuario = this.formRegistro.value;
       this.miRegistro.idkey = 1;
+      this.miRegistro.window = 'ship';
       this.loginService.createUser('usuario', this.miRegistro);
       this.registroExito();
       return;

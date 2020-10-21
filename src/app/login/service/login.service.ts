@@ -15,7 +15,6 @@ export class LoginService {
 
 
   createUser(key:string, usuario: Register){
-    console.log('imprimo usuario', usuario);
     let resultado: Register[]  = this.getUser('usuario');
     if(resultado && resultado.length) {
       this.usuarioArray.push(usuario);

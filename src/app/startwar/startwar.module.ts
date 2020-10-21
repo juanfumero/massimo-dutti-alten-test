@@ -13,6 +13,8 @@ import { StarshipsListComponent } from './starships-list/starships-list.componen
 import { StarshipComponent } from './starships-list/starship/starship.component';
 import { StarshipsDetailComponent } from './starships-detail/starships-detail.component';
 import { InicioComponent } from './inicio/inicio.component';
+import { MenuComponent } from './menu/menu.component';
+import { PantallaComponent } from './pantalla/pantalla.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +22,9 @@ import { InicioComponent } from './inicio/inicio.component';
   StarshipsListComponent,
   StarshipComponent,
   StarshipsDetailComponent,
-  InicioComponent],
+  InicioComponent,
+  MenuComponent,
+  PantallaComponent],
   imports: [
     StarWarRoutingModule,
     CommonModule,
