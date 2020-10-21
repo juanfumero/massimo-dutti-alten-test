@@ -8,13 +8,16 @@ const routes: Routes = [
   { path: 'login', component: LoginComponent},
   { path: 'registro', component: RegistroComponent },
   {
-    path: 'ships',
+    path: 'inicio',
     loadChildren: () => import('./startwar/startwar.module').then(m => m.StarWarModule)
   }
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes, {
+    enableTracing: false,
+    useHash: true
+  })],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }

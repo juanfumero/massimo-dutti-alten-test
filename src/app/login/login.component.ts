@@ -37,7 +37,7 @@ export class LoginComponent implements OnInit {
         let buscar = resultado.find(x => x.usuario.username === user && x.usuario.password === pass);
         if(buscar) {
           console.log('entro en el login');
-          this.router.navigate(['/ships']);
+          this.router.navigate(['/inicio/ships']);
           this.dataLoading = false;
         } else {
           this.loginError();

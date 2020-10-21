@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { ShipsService } from '../../services/ships.service';
 
 @Component({
@@ -9,13 +9,18 @@ import { ShipsService } from '../../services/ships.service';
 export class StarshipComponent implements OnInit {
 
   @Input() startShipItem: any;
+  @Output() myDetailClic: EventEmitter<any>;
+
   imageURL: string;
   esImagen: boolean = false;
-  constructor(private shipService: ShipsService) { }
+  idStartShip: string;
+  constructor(private shipService: ShipsService) {
+    this.myDetailClic = new EventEmitter<any>();
+   }
 
   ngOnInit(): void {
-
-    let imagenUrl = 'https://starwars-visualguide.com/assets/img/starships/' + this.getStarshipId(this.startShipItem.url) + '.jpg';
+    this.idStartShip  = this.getStarshipId(this.startShipItem.url);
+    let imagenUrl = 'https://starwars-visualguide.com/assets/img/starships/' + this.idStartShip + '.jpg';
 
     this.shipService.getImage(imagenUrl).subscribe(x => {
       if(x.status === 200) {
@@ -38,6 +43,10 @@ export class StarshipComponent implements OnInit {
     let miResult = url.split("/").filter(item =>
        item != "").slice(-1)[0];
     return miResult;
+  }
+
+  miEventoClic() {
+    this.myDetailClic.emit(this.idStartShip);
   }
 
 

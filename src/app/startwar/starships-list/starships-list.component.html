@@ -1,7 +1,7 @@
 
 <div class="ships">
   <div class="row">
-      <app-starship *ngFor="let item of startShip"   [startShipItem]="item" starship="item" class="col-xs-6 col-sm-6 col-md-3 moveToTop"></app-starship>
+      <app-starship *ngFor="let item of startShip" (myDetailClic)="naveEventoClic($event)"   [startShipItem]="item" starship="item" class="col-xs-6 col-sm-6 col-md-3 moveToTop"></app-starship>
   </div>
 </div>
 <br>

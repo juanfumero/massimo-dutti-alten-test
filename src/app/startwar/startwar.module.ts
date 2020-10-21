@@ -11,12 +11,16 @@ import { StarWarRoutingModule } from './startwar-routing.module';
 import { ShipsComponent } from './ships/ships.component';
 import { StarshipsListComponent } from './starships-list/starships-list.component';
 import { StarshipComponent } from './starships-list/starship/starship.component';
+import { StarshipsDetailComponent } from './starships-detail/starships-detail.component';
+import { InicioComponent } from './inicio/inicio.component';
 
 @NgModule({
   declarations: [
   ShipsComponent,
   StarshipsListComponent,
-  StarshipComponent],
+  StarshipComponent,
+  StarshipsDetailComponent,
+  InicioComponent],
   imports: [
     StarWarRoutingModule,
     CommonModule,

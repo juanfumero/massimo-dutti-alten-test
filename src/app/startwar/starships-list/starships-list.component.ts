@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-starships-list',
@@ -9,9 +10,13 @@ export class StarshipsListComponent implements OnInit {
 
   @Input() startShip: any[];
 
-  constructor() { }
+  constructor(private router: Router) { }
 
   ngOnInit(): void {
+  }
+
+  naveEventoClic($evento){
+    this.router.navigate(['/inicio/starshipdetail/', $evento]);
   }
 
 }
