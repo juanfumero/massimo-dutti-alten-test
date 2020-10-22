@@ -29,25 +29,32 @@ export class LoginComponent implements OnInit {
   }
 
   onSubmitLoginForm() {
+
       this.dataLoading = true;
       let user = this.formulario.get('username').value;
       let pass = btoa(this.formulario.get('password').value);
       let resultado: Register[]  = this.loginService.getUser('usuario');
-      setTimeout(() => {
-        let buscar = resultado.find(userRe => userRe.usuario.username === user && userRe.usuario.password === pass);
-        if(buscar) {
-          this.loginService.userSubject.next(buscar);
-          if(buscar.window ===  PANTALLA_ENUM.SHIP) {
-            this.router.navigate(['/inicio/ships']);
-          } else if (buscar.window ===  PANTALLA_ENUM.PANTALLA) {
-            this.router.navigate(['/inicio/pantalla']);
+      if(resultado && resultado.length > 0){
+        setTimeout(() => {
+          let buscar = resultado.find(userRe => userRe.usuario.username === user && userRe.usuario.password === pass);
+          if(buscar) {
+            this.loginService.userSubject.next(buscar);
+            if(buscar.window ===  PANTALLA_ENUM.SHIP) {
+              this.router.navigate(['/inicio/ships']);
+            } else if (buscar.window ===  PANTALLA_ENUM.PANTALLA) {
+              this.router.navigate(['/inicio/pantalla']);
+            }
+            this.dataLoading = false;
+          } else {
+            this.loginError();
+            this.dataLoading = false;
           }
-          this.dataLoading = false;
-        } else {
-          this.loginError();
-          this.dataLoading = false;
-        }
-      }, 3000);
+        }, 3000);
+      } else {
+        this.loginError();
+        this.dataLoading = false;
+      }
+
 
   }
 
