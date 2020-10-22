@@ -5,6 +5,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { analyzeAndValidateNgModules } from '@angular/compiler';
 import { AppService } from 'src/app/app.service';
 import { Flash } from '../model/flash';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-registro',
@@ -17,8 +18,9 @@ export class RegistroComponent implements OnInit {
   miRegistro: Register;
   myFlashRegister: Flash;
   mensajeAlerta: boolean = false;
+  botonDisable: boolean = false;
 
-  constructor(private fb: FormBuilder, private loginService: LoginService, private appService: AppService) {
+  constructor(private fb: FormBuilder, private loginService: LoginService, private appService: AppService, private router: Router) {
      this.miRegistro = new Register();
   }
 
@@ -51,6 +53,7 @@ export class RegistroComponent implements OnInit {
           this.miRegistro.window = 'ship';
           this.loginService.createUser('usuario', this.miRegistro);
           this.registroExito();
+          this.botonDisable = true;
           return;
         } else {
           this.miRegistro.usuario = this.formRegistro.value;
@@ -58,6 +61,7 @@ export class RegistroComponent implements OnInit {
           this.miRegistro.window = 'ship';
           this.loginService.createUser('usuario', this.miRegistro);
           this.registroExito();
+          this.botonDisable = true;
           return;
         }
       }
@@ -69,6 +73,7 @@ export class RegistroComponent implements OnInit {
       this.miRegistro.window = 'ship';
       this.loginService.createUser('usuario', this.miRegistro);
       this.registroExito();
+      this.botonDisable = true;
       return;
     }
   }
@@ -87,5 +92,9 @@ export class RegistroComponent implements OnInit {
     this.myFlashRegister.message =  `El usuario fue registrado con exito`;
     this.myFlashRegister.type = "success";
     this.mensajeAlerta = true;
+
+    setTimeout(() => {
+        this.router.navigate(['/login']);
+    }, 2000);
   }
 }
