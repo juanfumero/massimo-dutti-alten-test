@@ -3,11 +3,11 @@
 <app-starships-list [startShip]="myResultadoStart"></app-starships-list>
 
 <div>
-  <button (click)="reCallgetListOdfBloque()"  class="btn btn-primary"> Ree-call 5 minutes</button>
+  <button (click)="reCallgetListOdfBloque()"  class="btn btn-dark"> Ree-call 5 minutes</button>
 </div>
 <br>
 
 <div class="buttons">
-  <button (click)="previewResult()"  class="btn btn-primary button-left"[disabled]="valorGlobal?.previous === null">Previous</button>
-  <button (click)="nextResult()"  class="btn btn-primary button-rigth" [disabled]="valorGlobal?.next === null">Next</button>
+  <button (click)="previewResult()"  class="btn btn-dark button-left"[disabled]="valorGlobal?.previous === null">Previous</button>
+  <button (click)="nextResult()"  class="btn btn-dark button-rigth" [disabled]="valorGlobal?.next === null">Next</button>
 </div>

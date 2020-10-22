@@ -1,24 +1,27 @@
 <div *ngIf="mensajeAlerta === true" [ngClass]="{'alert alert-success': myFlashLoginr.type === 'success', 'alert alert-danger': myFlashLoginr.type === 'error' }"  >
   {{myFlashLoginr.message}}
 </div>
-<div class="col-md-4 col-md-offset-4 moverDerecha">
-  <h2>Login</h2>
-  <form [formGroup]="formulario" (ngSubmit)="onSubmitLoginForm()" >
-      <div class="form-group" [ngClass]="{ 'was-validated':  formulario.get('username').dirty &&  formulario.get('username').errors }">
-          <label for="username">Username</label>
-          <input type="text" formControlName="username" name="username" id="username" class="form-control" ng-model="vm.username" required />
-          <span class="text-danger" *ngIf="formulario.get('username').dirty &&  formulario.get('username').errors" >Username is required</span>
-      </div>
-      <div class="form-group" [ngClass]="{ 'was-validated':  formulario.get('password').dirty &&  formulario.get('password').errors }">
-          <label for="password">Password</label>
-          <input type="password" formControlName="password" name="password" id="password" class="form-control" ng-model="vm.password" required />
-          <span  class="text-danger"  *ngIf="formulario.get('password').dirty &&  formulario.get('password').errors">Password is required</span>
-      </div>
-      <div class="form-actions">
-          <button  class="btn btn-primary"  [disabled]="!formulario.valid">Login</button>
-         <img *ngIf="dataLoading" src="data:image/gif;base64,R0lGODlhEAAQAPIAAP///wAAAMLCwkJCQgAAAGJiYoKCgpKSkiH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAAACwAAAAAEAAQAAADMwi63P4wyklrE2MIOggZnAdOmGYJRbExwroUmcG2LmDEwnHQLVsYOd2mBzkYDAdKa+dIAAAh+QQJCgAAACwAAAAAEAAQAAADNAi63P5OjCEgG4QMu7DmikRxQlFUYDEZIGBMRVsaqHwctXXf7WEYB4Ag1xjihkMZsiUkKhIAIfkECQoAAAAsAAAAABAAEAAAAzYIujIjK8pByJDMlFYvBoVjHA70GU7xSUJhmKtwHPAKzLO9HMaoKwJZ7Rf8AYPDDzKpZBqfvwQAIfkECQoAAAAsAAAAABAAEAAAAzMIumIlK8oyhpHsnFZfhYumCYUhDAQxRIdhHBGqRoKw0R8DYlJd8z0fMDgsGo/IpHI5TAAAIfkECQoAAAAsAAAAABAAEAAAAzIIunInK0rnZBTwGPNMgQwmdsNgXGJUlIWEuR5oWUIpz8pAEAMe6TwfwyYsGo/IpFKSAAAh+QQJCgAAACwAAAAAEAAQAAADMwi6IMKQORfjdOe82p4wGccc4CEuQradylesojEMBgsUc2G7sDX3lQGBMLAJibufbSlKAAAh+QQJCgAAACwAAAAAEAAQAAADMgi63P7wCRHZnFVdmgHu2nFwlWCI3WGc3TSWhUFGxTAUkGCbtgENBMJAEJsxgMLWzpEAACH5BAkKAAAALAAAAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HcQ4EMTCpyrCuUBjCYRgHVtqlAiB1YhiCnlsRkAAAOwAAAAAAAAAAAA==" />
-          <a  class="btn btn-link" [routerLink]="['/registro']" >Register</a>
-      </div>
-  </form>
-</div>
+
+  <div class="card moverDerecha">
+    <h4 class="card-header">Login</h4>
+    <div class="card-body">
+      <form [formGroup]="formulario" (ngSubmit)="onSubmitLoginForm()" >
+        <div class="form-group" [ngClass]="{ 'was-validated':  formulario.get('username').dirty &&  formulario.get('username').errors }">
+            <label for="username">Username</label>
+            <input type="text" formControlName="username" name="username" id="username" class="form-control" ng-model="vm.username" required />
+            <span class="text-danger" *ngIf="formulario.get('username').dirty &&  formulario.get('username').errors" >Username is required</span>
+        </div>
+        <div class="form-group" [ngClass]="{ 'was-validated':  formulario.get('password').dirty &&  formulario.get('password').errors }">
+            <label for="password">Password</label>
+            <input type="password" formControlName="password" name="password" id="password" class="form-control" ng-model="vm.password" required />
+            <span  class="text-danger"  *ngIf="formulario.get('password').dirty &&  formulario.get('password').errors">Password is required</span>
+        </div>
+        <div class="form-actions">
+            <button  class="btn btn-dark"  [disabled]="!formulario.valid">Login</button>
+           <img *ngIf="dataLoading" src="data:image/gif;base64,R0lGODlhEAAQAPIAAP///wAAAMLCwkJCQgAAAGJiYoKCgpKSkiH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAAACwAAAAAEAAQAAADMwi63P4wyklrE2MIOggZnAdOmGYJRbExwroUmcG2LmDEwnHQLVsYOd2mBzkYDAdKa+dIAAAh+QQJCgAAACwAAAAAEAAQAAADNAi63P5OjCEgG4QMu7DmikRxQlFUYDEZIGBMRVsaqHwctXXf7WEYB4Ag1xjihkMZsiUkKhIAIfkECQoAAAAsAAAAABAAEAAAAzYIujIjK8pByJDMlFYvBoVjHA70GU7xSUJhmKtwHPAKzLO9HMaoKwJZ7Rf8AYPDDzKpZBqfvwQAIfkECQoAAAAsAAAAABAAEAAAAzMIumIlK8oyhpHsnFZfhYumCYUhDAQxRIdhHBGqRoKw0R8DYlJd8z0fMDgsGo/IpHI5TAAAIfkECQoAAAAsAAAAABAAEAAAAzIIunInK0rnZBTwGPNMgQwmdsNgXGJUlIWEuR5oWUIpz8pAEAMe6TwfwyYsGo/IpFKSAAAh+QQJCgAAACwAAAAAEAAQAAADMwi6IMKQORfjdOe82p4wGccc4CEuQradylesojEMBgsUc2G7sDX3lQGBMLAJibufbSlKAAAh+QQJCgAAACwAAAAAEAAQAAADMgi63P7wCRHZnFVdmgHu2nFwlWCI3WGc3TSWhUFGxTAUkGCbtgENBMJAEJsxgMLWzpEAACH5BAkKAAAALAAAAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HcQ4EMTCpyrCuUBjCYRgHVtqlAiB1YhiCnlsRkAAAOwAAAAAAAAAAAA==" />
+            <a  class="btn btn-link" [routerLink]="['/registro']" >Register</a>
+        </div>
+    </form>
+    </div>
+  </div>
 
