@@ -36,6 +36,7 @@ export class LoginComponent implements OnInit {
       setTimeout(() => {
         let buscar = resultado.find(userRe => userRe.usuario.username === user && userRe.usuario.password === pass);
         if(buscar) {
+          this.loginService.userSubject.next(buscar);
           if(buscar.window ===  PANTALLA_ENUM.SHIP) {
             this.router.navigate(['/inicio/ships']);
           } else if (buscar.window ===  PANTALLA_ENUM.PANTALLA) {

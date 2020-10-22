@@ -6,6 +6,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { ShipsComponent } from './ships/ships.component';
 import { StarshipsDetailComponent } from './starships-detail/starships-detail.component';
 import { MenuComponent } from './menu/menu.component';
+import { AuthGuard } from '../helpers/auth.guard';
 
 
 
@@ -15,7 +16,7 @@ const adminRoutes: Routes = [
       component: InicioComponent,
       children: [
         {
-          path: 'ships', component: ShipsComponent
+          path: 'ships', component: ShipsComponent,
         },
         {
           path: 'starshipdetail/:id', component: StarshipsDetailComponent
@@ -26,7 +27,7 @@ const adminRoutes: Routes = [
         {
           path: 'pantalla', component: PantallaComponent
         }
-      ]
+      ],  canActivate: [AuthGuard]
     }
   ];
 
