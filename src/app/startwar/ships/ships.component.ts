@@ -25,16 +25,16 @@ export class ShipsComponent implements OnInit {
 
   reCallgetListOdfBloque() {
     //localStorage.removeItem('protectApi');
-    let variable = this.getWithExpiry('protectApi');
-    if(variable) {
+    //let variable = this.getWithExpiry('protectApi');
+    //if(variable) {
       this.myShipService.getListOdfBloque().subscribe(shipBloque => {
         if(shipBloque){
           this.myResultadoStart = shipBloque.results;
           this.valorGlobal = shipBloque;
-          this.setWithExpiry('protectApi', false, 5);
+          //this.setWithExpiry('protectApi', false, 5);
         }
       });
-    }
+    //}
 
   }
 

@@ -9,7 +9,9 @@ import { FormControl, FormGroup, FormsModule, ReactiveFormsModule } from '@angul
 import { RegistroComponent } from './login/registro/registro.component';
 import { LoginService } from './login/service/login.service';
 import { AppService } from './app.service';
-import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { HttpClient, HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { RequestCacheService } from './helpers/requestCache.service';
+import { CacheInterceptor } from './helpers/cache.interceptor';
 
 @NgModule({
   declarations: [
@@ -25,7 +27,9 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
     ReactiveFormsModule,
     StarWarModule
   ],
-  providers: [LoginService, AppService],
+  providers: [
+    { provide: HTTP_INTERCEPTORS, useClass: CacheInterceptor, multi: true },
+    LoginService, AppService, RequestCacheService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
