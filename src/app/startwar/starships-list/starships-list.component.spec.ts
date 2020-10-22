@@ -1,6 +1,8 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { Router } from '@angular/router';
 
 import { StarshipsListComponent } from './starships-list.component';
+import { RouterTestingModule } from '@angular/router/testing';
 
 describe('StarshipsListComponent', () => {
   let component: StarshipsListComponent;
@@ -8,6 +10,7 @@ describe('StarshipsListComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
+      imports: [RouterTestingModule],
       declarations: [ StarshipsListComponent ]
     })
     .compileComponents();
