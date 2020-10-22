@@ -1,8 +1,17 @@
-<div class="buttons">
-  <button (click)="irAmenu()" class="btn btn-dark button-left">Menú</button>
-  <button (click)="logout()" class="btn btn-dark ">Logout</button>
-</div>
+
+<nav class="navbar navbar-expand navbar-dark bg-dark">
+  <div class="navbar-nav ">
+        <a class="nav-item nav-link" routerLink="/inicio/ships" >Home</a>
+        <a class="nav-item nav-link" (click)="irAmenu()">Menú</a>
+        <a class="nav-item nav-link ml-auto" (click)="logout()">Logout</a>
+  </div>
+</nav>
+
+<div class="container">
 
 
 <router-outlet>
 </router-outlet>
+
+
+</div>
