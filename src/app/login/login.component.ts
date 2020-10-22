@@ -61,7 +61,7 @@ export class LoginComponent implements OnInit {
   loginError() {
     this.appService.flash = new Flash();
     this.myFlashLoginr = this.appService.flash;
-    this.myFlashLoginr.message =  `Usuario o contraseña inconrrectos`;
+    this.myFlashLoginr.message =  `Incorrect username or password`;
     this.myFlashLoginr.type = "error";
     this.mensajeAlerta = true;
   }

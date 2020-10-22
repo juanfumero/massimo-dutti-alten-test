@@ -49,7 +49,7 @@ export class MenuComponent implements OnInit {
  registroExito() {
     this.appService.flash = new Flash();
     this.myFlashLoginr = this.appService.flash;
-    this.myFlashLoginr.message =  `El usuario fue registrado con exito`;
+    this.myFlashLoginr.message =  `User was successfully registered`;
     this.myFlashLoginr.type = "success";
     this.mensajeAlerta = true;
   }
@@ -57,7 +57,7 @@ export class MenuComponent implements OnInit {
   menuError() {
     this.appService.flash = new Flash();
     this.myFlashLoginr = this.appService.flash;
-    this.myFlashLoginr.message =  `Usuario o contraseña inconrrectos`;
+    this.myFlashLoginr.message =  `Incorrect username or password`;
     this.myFlashLoginr.type = "error";
     this.mensajeAlerta = true;
   }

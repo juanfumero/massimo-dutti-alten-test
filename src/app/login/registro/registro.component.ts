@@ -81,7 +81,7 @@ export class RegistroComponent implements OnInit {
   registroError(usuario: string) {
     this.appService.flash = new Flash();
     this.myFlashRegister = this.appService.flash;
-    this.myFlashRegister.message =  `El usuario:${usuario} ya esta registrado en el sistema`;
+    this.myFlashRegister.message =  `The user: ${usuario} are already registered in the system`;
     this.myFlashRegister.type = "error";
     this.mensajeAlerta = true;
   }
@@ -89,7 +89,7 @@ export class RegistroComponent implements OnInit {
   registroExito() {
     this.appService.flash = new Flash();
     this.myFlashRegister = this.appService.flash;
-    this.myFlashRegister.message =  `El usuario fue registrado con exito`;
+    this.myFlashRegister.message =  `User was successfully registered`;
     this.myFlashRegister.type = "success";
     this.mensajeAlerta = true;
 
