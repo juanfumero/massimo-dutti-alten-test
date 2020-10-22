@@ -31,10 +31,10 @@ export class StarshipsDetailComponent implements OnInit {
   agregarImagen(id: string){
     let imagenUrl = 'https://starwars-visualguide.com/assets/img/starships/' + id + '.jpg';
 
-    this.shipService.getImage(imagenUrl).subscribe(x => {
-      if(x.status === 200) {
+    this.shipService.getImage(imagenUrl).subscribe(imagenes => {
+      if(imagenes.status === 200) {
         this.esImagen = true;
-        this.imageURL = x.url;
+        this.imageURL = imagenes.url;
       } else {
         this.esImagen = false;
       }

@@ -13,10 +13,10 @@ export class ShipsComponent implements OnInit {
   constructor(private myShipService: ShipsService) { }
 
   ngOnInit(): void {
-    this.myShipService.getListOdfBloque().subscribe(x => {
-      if(x){
-        this.myResultadoStart = x.results;
-        this.valorGlobal = x;
+    this.myShipService.getListOdfBloque().subscribe(ship => {
+      if(ship){
+        this.myResultadoStart = ship.results;
+        this.valorGlobal = ship;
       }
     });
 
@@ -27,10 +27,10 @@ export class ShipsComponent implements OnInit {
     //localStorage.removeItem('protectApi');
     let variable = this.getWithExpiry('protectApi');
     if(variable) {
-      this.myShipService.getListOdfBloque().subscribe(x => {
-        if(x){
-          this.myResultadoStart = x.results;
-          this.valorGlobal = x;
+      this.myShipService.getListOdfBloque().subscribe(shipBloque => {
+        if(shipBloque){
+          this.myResultadoStart = shipBloque.results;
+          this.valorGlobal = shipBloque;
           this.setWithExpiry('protectApi', false, 5);
         }
       });
@@ -40,10 +40,10 @@ export class ShipsComponent implements OnInit {
 
   nextResult() {
     if(this.valorGlobal.next !== null) {
-      this.myShipService.getListNextOrPreview(this.valorGlobal.next).subscribe(x => {
-        if(x){
-          this.myResultadoStart = x.results;
-          this.valorGlobal = x;
+      this.myShipService.getListNextOrPreview(this.valorGlobal.next).subscribe(next => {
+        if(next){
+          this.myResultadoStart = next.results;
+          this.valorGlobal = next;
         }
       })
     }
@@ -51,10 +51,10 @@ export class ShipsComponent implements OnInit {
 
   previewResult() {
     if(this.valorGlobal.previous !== null) {
-      this.myShipService.getListNextOrPreview(this.valorGlobal.previous).subscribe(x => {
-        if(x){
-          this.myResultadoStart = x.results;
-          this.valorGlobal = x;
+      this.myShipService.getListNextOrPreview(this.valorGlobal.previous).subscribe(previous => {
+        if(previous){
+          this.myResultadoStart = previous.results;
+          this.valorGlobal = previous;
         }
       })
     }

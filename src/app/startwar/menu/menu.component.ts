@@ -30,11 +30,11 @@ export class MenuComponent implements OnInit {
     let pass = btoa(this.formChangeWindow.get('password').value);
     let win = this.formChangeWindow.get('window').value;
     let resultado: Register[]  = this.loginService.getUser('usuario');
-      let buscar = resultado.find(x => x.usuario.username === user && x.usuario.password === pass);
+      let buscar = resultado.find(userRe => userRe.usuario.username === user && userRe.usuario.password === pass);
       if(buscar) {
-        resultado.map(x => {
-          if(x.idkey === buscar.idkey){
-            x.window = win;
+        resultado.map(user => {
+          if(user.idkey === buscar.idkey){
+            user.window = win;
           }
         });
         localStorage.setItem('usuario', JSON.stringify(resultado));

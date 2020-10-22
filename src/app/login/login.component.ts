@@ -34,7 +34,7 @@ export class LoginComponent implements OnInit {
       let pass = btoa(this.formulario.get('password').value);
       let resultado: Register[]  = this.loginService.getUser('usuario');
       setTimeout(() => {
-        let buscar = resultado.find(x => x.usuario.username === user && x.usuario.password === pass);
+        let buscar = resultado.find(userRe => userRe.usuario.username === user && userRe.usuario.password === pass);
         if(buscar) {
           if(buscar.window ===  PANTALLA_ENUM.SHIP) {
             this.router.navigate(['/inicio/ships']);

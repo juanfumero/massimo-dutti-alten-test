@@ -39,7 +39,7 @@ export class RegistroComponent implements OnInit {
     this.formRegistro.get('password').setValue(btoa(this.formRegistro.get('password').value));
     if(resultado && resultado.length > 0){
       let buscarUsuario = this.formRegistro.get('username').value;
-      let busqueda = resultado.find(x => x.usuario.username === buscarUsuario);
+      let busqueda = resultado.find(user => user.usuario.username === buscarUsuario);
       if( busqueda){
         this.registroError(buscarUsuario);
         return;
