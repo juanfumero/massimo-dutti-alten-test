@@ -5,8 +5,11 @@
 <div>
   <button (click)="reCallgetListOdfBloque()"  class="btn btn-dark"> Ree-call 5 minutes</button>
 </div>
+<div>
+  <button (click)="descargarExcel()"  class="btn btn-dark"> Descargar Excel</button>
+</div>
 <br>
-
+<a #downloadFileLink></a>
 <div class="buttons">
   <button (click)="previewResult()"  class="btn btn-dark button-left"[disabled]="valorGlobal?.previous === null">Previous</button>
   <button (click)="nextResult()"  class="btn btn-dark button-rigth" [disabled]="valorGlobal?.next === null">Next</button>
